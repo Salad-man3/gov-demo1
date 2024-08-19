@@ -13,7 +13,7 @@ class AdminDecisionController extends Controller
      */
     public function index()
     {
-        $decisions = Decision::paginate(10);
+        $decisions = Decision::paginate(15);
         $data = [
             "all_decisions" => $decisions
         ];

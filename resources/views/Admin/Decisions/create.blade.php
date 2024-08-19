@@ -1,4 +1,4 @@
-@extends('layouts.list')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -33,7 +33,7 @@
                                 <input type="text" name="adminstrator" id="adminstrator" class="form-control">
                                 <span class="text-danger">@error('adminstrator'){{ $message }}@enderror</span>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>

@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Show decision details <a href="{{ url('admin/decisions') }}"
+                        <h4>Show decision details <a href="{{ url('decisions') }}"
                                 class="btn btn-danger float-end">Back</a></h4>
                     </div>
                     <div class="card-body">

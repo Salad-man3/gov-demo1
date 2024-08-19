@@ -12,41 +12,39 @@
                 @endsession
                 <div class="card">
                     <div class="card-header">
-                        <h4>Services list <a href="{{ url('admin/services/create') }}" class="btn btn-primary float-end">Add
-                                service</a></h4>
+                        <h4>Decisions list</h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered ">
                             <thead>
                                 <tr>
                                     {{-- <th>ID</th> --}}
-                                    <th>Name</th>
+                                    <th>Title</th>
                                     <th>Description</th>
+                                    <th>Adminstrator</th>
+                                    <th>created at</th>
+                                    <th>last update</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data['all_services'] as $service)
+                                @foreach ($data['all_decisions'] as $decision)
                                     <tr>
-                                        {{-- <td>{{ $service->id }}</td> --}}
-                                        <td>{{ $service->name }}</td>
-                                        <td>{{ $service->description }}</td>
-                                        <td class="admin-action-column">
-                                            <a href="{{ route('services.edit', $service->id) }}"
-                                                class="btn btn-success">Edit</a>
-                                            <a href="{{ route('services.show', $service->id) }}"
+                                        {{-- <td>{{ $decision->id }}</td> --}}
+                                        <td>{{ $decision->title }}</td>
+                                        <td>{{ $decision->description }}</td>
+                                        <td>{{ $decision->adminstrator }}</td>
+                                        <td>{{ $decision->created_at->format('M d, Y H:i') }}</td>
+                                        <td>{{ $decision->updated_at->format('M d, Y H:i') }}</td>
+                                        <td class="action-column">
+                                            <a href="{{ route('decisions.show', $decision->id) }}"
                                                 class="btn btn-info">Show</a>
-                                                <form action="{{ route('services.destroy', $service->id) }}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$data['all_services']->links()}}
+                        {{ $data['all_decisions']->links() }}
                     </div>
                 </div>
             </div>

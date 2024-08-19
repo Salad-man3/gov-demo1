@@ -12,8 +12,7 @@
                 @endsession
                 <div class="card">
                     <div class="card-header">
-                        <h4>Services list <a href="{{ url('admin/services/create') }}" class="btn btn-primary float-end">Add
-                                service</a></h4>
+                        <h4>Services list</h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered ">
@@ -31,22 +30,15 @@
                                         {{-- <td>{{ $service->id }}</td> --}}
                                         <td>{{ $service->name }}</td>
                                         <td>{{ $service->description }}</td>
-                                        <td class="admin-action-column">
-                                            <a href="{{ route('services.edit', $service->id) }}"
-                                                class="btn btn-success">Edit</a>
+                                        <td class="action-column">
                                             <a href="{{ route('services.show', $service->id) }}"
                                                 class="btn btn-info">Show</a>
-                                                <form action="{{ route('services.destroy', $service->id) }}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$data['all_services']->links()}}
+                        {{ $data['all_services']->links() }}
                     </div>
                 </div>
             </div>

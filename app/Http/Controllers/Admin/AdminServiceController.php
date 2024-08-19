@@ -13,7 +13,7 @@ class AdminServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(10);
+        $services = Service::paginate(15);
         $data = [
             "all_services" => $services
         ];

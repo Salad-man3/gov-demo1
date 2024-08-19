@@ -1,7 +1,7 @@
-@extends('layouts.list')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+        <div class="container">
         <div class="row">
             <div class="col-md-12">
                 @session('status')
@@ -25,6 +25,7 @@
                                     <th>Adminstrator</th>
                                     <th>created at</th>
                                     <th>last update</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,7 +37,7 @@
                                         <td>{{ $decision->adminstrator }}</td>
                                         <td>{{ $decision->created_at->format('M d, Y H:i') }}</td>
                                         <td>{{ $decision->updated_at->format('M d, Y H:i') }}</td>
-                                        <td>
+                                        <td class="admin-action-column">
                                             <a href="{{ route('decisions.edit', $decision->id) }}"
                                                 class="btn btn-success">Edit</a>
                                             <a href="{{ route('decisions.show', $decision->id) }}"
