@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <title>Laravel</title>
 
     <!-- Fonts -->
@@ -30,7 +31,6 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            {{-- <a class="navbar-brand" href="">Navbar</a> --}}
             <img src="/images/Screenshot 2024-08-18 204008.png" alt="Bootstrap" width="100" height="32">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -39,13 +39,42 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    {{-- <a class="nav-link active" aria-current="page" href="/">Home</a> --}}
+                    <a class="nav-link {{ request()->is('admin/dashboard*') ? 'active' : '' }}"
+                        href="{{ route('admin.dashboard') }}">Dashboard</a>
                     <a class="nav-link {{ request()->is('admin/decisions*') || request()->is('decisions*') ? 'active' : '' }}"
                         href="decisions">Decision</a>
                     <a class="nav-link {{ request()->is('admin/services*') || request()->is('services*') ? 'active' : '' }}"
                         href="services">Services</a>
                 </div>
             </div>
+            @auth
+            <!-- Settings Dropdown for authenticated users -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false"
+                    style="visibility: visible !important; opacity: 1 !important; display: block !important;">
+                    {{ Auth::user()->name }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @if (!Auth::user() instanceof App\Models\Admin)
+                        <li><a class="dropdown-item" href="{{ route('profile.edit') }}"
+                                style="visibility: visible !important; opacity: 1 !important; display: block !important;">{{ __('Profile') }}</a>
+                        </li>
+                    @endif
+                    <li>
+                        <form method="POST"
+                            action="{{ Auth::user() instanceof App\Models\Admin ? route('admin.logout') : route('logout') }}">
+                            @csrf
+                            <button type="submit" class="dropdown-item"
+                                style="visibility: visible !important; opacity: 1 !important; display: block !important;">{{ __('Log Out') }}</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        @else
+            <!-- Login button for unauthenticated users -->
+            <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+        @endauth
         </div>
     </nav>
 

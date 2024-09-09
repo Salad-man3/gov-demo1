@@ -21,7 +21,7 @@ class RegisteredAdminController extends Controller
     {
         return view('admin.auth.register');
     }
-
+  
     /**
      * Handle an incoming registration request.
      *

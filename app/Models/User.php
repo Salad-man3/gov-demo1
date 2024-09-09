@@ -11,7 +11,16 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-
+    /**
+     * Check if the user is an admin.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        // Replace 'role' with whatever column you use to store user roles
+        return $this->role === 'admin';
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -46,4 +55,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
 }
