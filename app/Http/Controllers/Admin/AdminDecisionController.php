@@ -17,7 +17,7 @@ class AdminDecisionController extends Controller
         $data = [
             "all_decisions" => $decisions
         ];
-        return view("Admin.Decisions.index", compact("data"));
+        return view("admin.Decisions.index", compact("data"));
     }
 
     /**
@@ -25,7 +25,7 @@ class AdminDecisionController extends Controller
      */
     public function create()
     {
-        return view("Admin.Decisions.create");
+        return view("admin.Decisions.create");
     }
 
     /**
@@ -52,7 +52,7 @@ class AdminDecisionController extends Controller
      */
     public function show(Decision $decision)
     {
-        return view("Admin.Decisions.show", compact('decision'));
+        return view("admin.Decisions.show", compact('decision'));
     }
 
     /**
@@ -60,7 +60,7 @@ class AdminDecisionController extends Controller
      */
     public function edit(Decision $decision)
     {
-        return view("Admin.Decisions.edit", compact('decision'));
+        return view("admin.Decisions.edit", compact('decision'));
     }
 
     /**

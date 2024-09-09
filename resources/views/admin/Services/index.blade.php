@@ -32,11 +32,11 @@
                                         <td>{{ $service->name }}</td>
                                         <td>{{ $service->description }}</td>
                                         <td class="admin-action-column">
-                                            <a href="{{ route('services.edit', $service->id) }}"
+                                            <a href="{{ route('admin.services.edit', $service->id) }}"
                                                 class="btn btn-success">Edit</a>
-                                            <a href="{{ route('services.show', $service->id) }}"
+                                            <a href="{{ route('admin.services.show', $service->id) }}"
                                                 class="btn btn-info">Show</a>
-                                                <form action="{{ route('services.destroy', $service->id) }}" method="POST" class="d-inline">
+                                                <form action="{{ route('admin.services.destroy', $service->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>

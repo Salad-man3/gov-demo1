@@ -17,7 +17,7 @@ class AdminServiceController extends Controller
         $data = [
             "all_services" => $services
         ];
-        return view("Admin.Services.index", compact("data"));
+        return view("admin.Services.index", compact("data"));
 
     }
 
@@ -26,7 +26,7 @@ class AdminServiceController extends Controller
      */
     public function create()
     {
-        return view("Admin.Services.create");
+        return view("admin.Services.create");
     }
 
     /**
@@ -51,7 +51,7 @@ class AdminServiceController extends Controller
      */
     public function show(Service $service)
     {
-        return view("Admin.Services.show", compact('service'));
+        return view("admin.Services.show", compact('service'));
 
     }
 
@@ -60,7 +60,7 @@ class AdminServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return view("Admin.Services.edit", compact('service'));
+        return view("admin.Services.edit", compact('service'));
 
     }
 

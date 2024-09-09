@@ -10,7 +10,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('services.store') }}" method="POST">
+                        <form action="{{ route('admin.services.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="name"> Name</label>

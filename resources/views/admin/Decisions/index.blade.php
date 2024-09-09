@@ -38,11 +38,11 @@
                                         <td>{{ $decision->created_at->format('M d, Y H:i') }}</td>
                                         <td>{{ $decision->updated_at->format('M d, Y H:i') }}</td>
                                         <td class="admin-action-column">
-                                            <a href="{{ route('decisions.edit', $decision->id) }}"
+                                            <a href="{{ route('admin.decisions.edit', $decision->id) }}"
                                                 class="btn btn-success">Edit</a>
-                                            <a href="{{ route('decisions.show', $decision->id) }}"
+                                            <a href="{{ route('admin.decisions.show', $decision->id) }}"
                                                 class="btn btn-info">Show</a>
-                                                <form action="{{ route('decisions.destroy', $decision->id) }}" method="POST" class="d-inline">
+                                                <form action="{{ route('admin.decisions.destroy', $decision->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>

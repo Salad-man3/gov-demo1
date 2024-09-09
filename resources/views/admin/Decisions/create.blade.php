@@ -10,7 +10,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('decisions.store') }}" method="POST">
+                        <form action="{{ route('admin.decisions.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="title"> Title</label>

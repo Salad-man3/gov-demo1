@@ -10,7 +10,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('decisions.update', $decision->id) }}" method="POST">
+                        <form action="{{ route('admin.decisions.update', $decision->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">

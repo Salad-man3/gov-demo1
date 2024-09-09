@@ -22,16 +22,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-Route::resource('admin/services', AdminServiceController::class);
-
-Route::resource('admin/decisions', AdminDecisionController::class);
-
-Route::resource('/decisions',UserDecisionController::class);
-
-Route::resource('/services',UserServiceController::class);
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('decisions', AdminDecisionController::class);
+    Route::resource('services', AdminServiceController::class);
+});
 
 
+Route::resource('/decisions', UserDecisionController::class);
 
-require __DIR__.'/auth.php';
+Route::resource('/services', UserServiceController::class);
 
+
+
+require __DIR__ . '/auth.php';
+
+require __DIR__ . '/admin-auth.php';

@@ -9,7 +9,7 @@
                         <h4>edit service <a href="{{ url('admin/services') }}" class="btn btn-danger float-end">Back</a></h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{  route('services.update',$service->id)}}" method="POST">
+                        <form action="{{  route('admin.services.update',$service->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
