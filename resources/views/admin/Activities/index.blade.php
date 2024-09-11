@@ -28,7 +28,7 @@
                                     @endif
                                 </p>
                                 <div class="text-center mt-3">
-                                    <img src="{{ asset('storage/' . $activitiesItem->photo) }}" class="img-fluid rounded" alt="{{ $activitiesItem->title }}">
+                                    <img src="{{ $activitiesItem->photo }}" class="img-fluid rounded" alt="{{ $activitiesItem->title }}">
                                 </div>
                                 <p class="card-text mt-2"><small class="text-muted">{{ $activitiesItem->created_at->format('M d, Y H:i') }}</small></p>
                                 <div class="mt-2">

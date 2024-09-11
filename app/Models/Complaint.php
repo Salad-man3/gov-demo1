@@ -14,7 +14,8 @@ class Complaint extends Model
     protected $fillable = [
         'subject',
         'description',
-        'type'
+        'type',
+        'mobile_number'
     ];
 
 

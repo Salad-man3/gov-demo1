@@ -36,12 +36,14 @@ class UserComplaintController extends Controller
                 "subject" => "required|string|max:255",
                 "description" => "required|string|max:1027",
                 "type" => "required|in:complaint,recommendation",
+                "mobile_number"=>"required|string|max:15"
             ]);
 
             Complaint::create([
                 "subject" => $request->subject,
                 "description" => $request->description,
                 "type" => $request->type,
+                "mobile_number" => $request->mobile_number
             ]);
 
             return redirect()->route('complaints.index')->with("status", "Complaint submitted successfully");

@@ -48,6 +48,15 @@ This project is built using the Laravel framework, leveraging its powerful featu
 
 ### Usage
 - Access the application at `http://localhost:8000`
+- To generate fake data for testing and development, run the following commands:
+  ```sh
+  php artisan tinker
+  App\Models\Service::factory(100)->create();
+  App\Models\Decision::factory(100)->create();
+  App\Models\Activity::factory()->count(100)->create();
+  App\Models\News::factory()->count(100)->create();
+  ```
+  This will create 100 fake entries each for Services, Decisions, Activities, and News.
 
 
 ### License

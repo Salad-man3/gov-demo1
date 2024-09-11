@@ -22,11 +22,13 @@
                             <div class="mb-3">
                                 <label class="d-block">نوع الرسالة</label>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type" id="typeComplaint" value="complaint" checked>
+                                    <input class="form-check-input" type="radio" name="type" id="typeComplaint"
+                                        value="complaint" checked>
                                     <label class="form-check-label" for="typeComplaint">شكوى</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type" id="typeRecommendation" value="recommendation">
+                                    <input class="form-check-input" type="radio" name="type" id="typeRecommendation"
+                                        value="recommendation">
                                     <label class="form-check-label" for="typeRecommendation">اقتراح</label>
                                 </div>
                                 <span class="text-danger">
@@ -39,6 +41,14 @@
                                 <label for="description"> الوصف</label>
                                 <textarea name="description" rows="4" class="form-control"></textarea>
                                 <span class="text-danger"> @error('description')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mobile_number">رقم الهاتف</label>
+                                <input type="text" name="mobile_number" class="form-control">
+                                <span class="text-danger"> @error('mobile_number')
                                         {{ $message }}
                                     @enderror
                                 </span>
