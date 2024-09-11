@@ -28,7 +28,7 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.decisions.index', absolute: false));
+        return redirect()->intended(route('admin.news.index', absolute: false));
     }
 
     /**
