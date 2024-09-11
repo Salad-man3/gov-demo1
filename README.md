@@ -48,12 +48,21 @@ This project is built using the Laravel framework, leveraging its powerful featu
 
 ### Usage
 - Access the application at `http://localhost:8000`
+- to access the admin privliged pages go to `http:localhost:8000/admin/register` for the first time then `http:localhost:8000/admin/login`
 - To generate fake data for testing and development, run the following commands:
   ```sh
   php artisan tinker
+  ```
+  ```sh
   App\Models\Service::factory(100)->create();
+  ```
+  ```sh
   App\Models\Decision::factory(100)->create();
+  ```
+  ```sh
   App\Models\Activity::factory()->count(100)->create();
+  ```
+  ```sh 
   App\Models\News::factory()->count(100)->create();
   ```
   This will create 100 fake entries each for Services, Decisions, Activities, and News.
