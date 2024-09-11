@@ -12,17 +12,16 @@
                 @endsession
                 <div class="card">
                     <div class="card-header">
-                        <h4>Services list <a href="{{ url('admin/services/create') }}" class="btn btn-primary float-end">Add
-                                service</a></h4>
+                        <h4>قائمة الخدمات <a href="{{ url('admin/services/create') }}" class="btn btn-primary float-end">إنشاء خدمة</a></h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered ">
                             <thead>
                                 <tr>
                                     {{-- <th>ID</th> --}}
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Action</th>
+                                    <th>الاسم</th>
+                                    <th>الوصف</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,16 +29,16 @@
                                     <tr>
                                         {{-- <td>{{ $service->id }}</td> --}}
                                         <td>{{ $service->name }}</td>
-                                        <td>{{ $service->description }}</td>
+                                        <td>{{ Str::limit($service->description, 100) }}</td>
                                         <td class="admin-action-column">
                                             <a href="{{ route('admin.services.edit', $service->id) }}"
-                                                class="btn btn-success">Edit</a>
+                                                class="btn btn-success">تعديل</a>
                                             <a href="{{ route('admin.services.show', $service->id) }}"
-                                                class="btn btn-info">Show</a>
+                                                class="btn btn-info">عرض</a>
                                                 <form action="{{ route('admin.services.destroy', $service->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger">حذف</button>
                                                 </form>
                                         </td>
                                     </tr>

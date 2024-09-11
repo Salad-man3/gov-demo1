@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>edit decision <a href="{{ url('admin/decisions') }}" class="btn btn-danger float-end">Back</a>
+                        <h4>تعديل قرار <a href="{{ url('admin/decisions') }}" class="btn btn-danger float-end">عودة</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -14,7 +14,7 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="title"> Title</label>
+                                <label for="title"> العنوان</label>
                                 <input type="text" name="title" class="form-control" value="{{ $decision->title }}">
                                 <span class="text-danger"> @error('title')
                                         {{ $message }}
@@ -22,7 +22,7 @@
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <label for="description"> Description</label>
+                                <label for="description"> الوصف</label>
                                 <textarea name="description" rows="4" class="form-control">{!! $decision->description !!}</textarea>
                                 <span class="text-danger"> @error('description')
                                         {{ $message }}
@@ -30,7 +30,7 @@
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <label for="adminstrator"> Adminstrator</label>
+                                <label for="adminstrator"> المسؤول</label>
                                 <input type="text" name="adminstrator" class="form-control" value="{{ $decision->adminstrator }}">
                                 <span class="text-danger"> @error('adminstrator')
                                         {{ $message }}
@@ -38,7 +38,7 @@
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">update</button>
+                                <button type="submit" class="btn btn-primary">تحديث</button>
                             </div>
                         </form>
                     </div>

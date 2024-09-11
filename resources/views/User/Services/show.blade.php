@@ -11,12 +11,12 @@
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="name"> Name</label>
+                            <label for="name"> Name</label><br>
                             <p>{{ $service->name }}</p>
                         </div>
                         <hr>
                         <div class="mb-3">
-                            <label for="description"> Description</label>
+                            <label for="description"> Description</label><br>
                             <p>{!! $service->description !!}</p>
                         </div>
                     </div>

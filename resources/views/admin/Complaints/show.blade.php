@@ -6,18 +6,23 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>تفاصيل الخدمة <a href="{{ url('admin/services') }}"
+                        <h4>عرض تفاصيل الرسالة <a href="{{ url('admin/complaints') }}"
                                 class="btn btn-danger float-end">عودة</a></h4>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="name"> الاسم</label><br>
-                            <p>{{ $service->name }}</p>
+                            <label for="subject"> العنوان</label><br>
+                            <p>{{ $complaint->subject }}</p>
                         </div>
                         <hr>
                         <div class="mb-3">
                             <label for="description"> الوصف</label><br>
-                            <p>{!! $service->description !!}</p>
+                            <p>{!! $complaint->description !!}</p>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                            <label for="type"> النوع</label><br>
+                            <p>{{ $complaint->type === 'complaint' ? 'شكوى' : 'اقتراح' }}</p>
                         </div>
                     </div>
                 </div>

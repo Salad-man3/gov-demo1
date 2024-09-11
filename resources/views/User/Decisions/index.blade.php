@@ -12,19 +12,18 @@
                 @endsession
                 <div class="card">
                     <div class="card-header">
-                        <h4>Decisions list</h4>
+                        <h4>القرارات</h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered ">
                             <thead>
                                 <tr>
                                     {{-- <th>ID</th> --}}
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Adminstrator</th>
-                                    <th>created at</th>
-                                    <th>last update</th>
-                                    <th>Action</th>
+                                    <th>العنوان</th>
+                                    <th>الوصف</th>
+                                    {{-- <th>المسؤول</th> --}}
+                                    <th>تاريخ الإنشاء</th>
+                                    <th>آخر تعديل</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,13 +31,13 @@
                                     <tr>
                                         {{-- <td>{{ $decision->id }}</td> --}}
                                         <td>{{ $decision->title }}</td>
-                                        <td>{{ $decision->description }}</td>
-                                        <td>{{ $decision->adminstrator }}</td>
+                                        <td>{{ Str::limit($decision->description, 100) }}</td>
+                                        {{-- <td>{{ $decision->adminstrator }}</td> --}}
                                         <td>{{ $decision->created_at->format('M d, Y H:i') }}</td>
                                         <td>{{ $decision->updated_at->format('M d, Y H:i') }}</td>
                                         <td class="action-column">
                                             <a href="{{ route('decisions.show', $decision->id) }}"
-                                                class="btn btn-info">Show</a>
+                                                class="btn btn-info">عرض</a>
                                         </td>
                                     </tr>
                                 @endforeach

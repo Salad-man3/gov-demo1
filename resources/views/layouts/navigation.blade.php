@@ -23,12 +23,17 @@
                         href="services"
                         style="position: static; visibility: visible !important; opacity: 1 !important; display: block !important;">Services</a>
                 </li>
+                <li class="nav-item" style="position: static; overflow: visible !important;">
+                    <a class="nav-link {{ request()->is('admin/complaints*') || request()->is('complaints*') ? 'active' : '' }}"
+                        href="complaints"
+                        style="position: static; visibility: visible !important; opacity: 1 !important; display: block !important;">Complaints</a>
+                </li>
             </ul>
         </div>
 
         @auth
             <!-- Settings Dropdown for authenticated users -->
-            <div class="dropdown">
+            <div style="margin-right: 60px;" class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-bs-toggle="dropdown" aria-expanded="false"
                     style="visibility: visible !important; opacity: 1 !important; display: block !important;">

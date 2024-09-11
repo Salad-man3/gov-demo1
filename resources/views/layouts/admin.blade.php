@@ -16,6 +16,7 @@
         .active {
             color: black;
             font-weight: 600;
+            border-bottom: 2px solid rgb(0, 191, 255);
         }
 
         .action-column {
@@ -39,42 +40,55 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link {{ request()->is('admin/dashboard*') ? 'active' : '' }}"
-                        href="{{ route('admin.dashboard') }}">Dashboard</a>
-                    <a class="nav-link {{ request()->is('admin/decisions*') || request()->is('decisions*') ? 'active' : '' }}"
-                        href="decisions">Decision</a>
-                    <a class="nav-link {{ request()->is('admin/services*') || request()->is('services*') ? 'active' : '' }}"
-                        href="services">Services</a>
+                    @if (Auth::guard('admin')->check())
+                        <a class="nav-link {{ request()->is('admin/news*') ? 'active' : '' }}"
+                            href="{{ url('admin/news') }}">الأخبار</a>
+                        <a class="nav-link {{ request()->is('admin/decisions*') ? 'active' : '' }}"
+                            href="{{ url('admin/decisions') }}">القرارات</a>
+                        <a class="nav-link {{ request()->is('admin/services*') ? 'active' : '' }}"
+                            href="{{ url('admin/services') }}">الخدمات</a>
+                        <a class="nav-link {{ request()->is('admin/activities*') ? 'active' : '' }}"
+                            href="{{ url('admin/activities') }}">النشاطات</a>
+                        <a class="nav-link {{ request()->is('admin/complaints*') ? 'active' : '' }}"
+                            href="{{ url('admin/complaints') }}">الشكاوي</a>
+                        <a class="nav-link {{ request()->is('council*') ? 'active' : '' }}"
+                            href="{{ url('/council') }}">أعضاء المجلس</a>
+                    @else
+                        <a class="nav-link {{ request()->is('news*') ? 'active' : '' }}"
+                            href="{{ url('news') }}">الأخبار</a>
+                        <a class="nav-link {{ request()->is('decisions*') ? 'active' : '' }}"
+                            href="{{ url('decisions') }}">القرارات</a>
+                        <a class="nav-link {{ request()->is('services*') ? 'active' : '' }}"
+                            href="{{ url('services') }}">الخدمات</a>
+                        <a class="nav-link {{ request()->is('activities*') ? 'active' : '' }}"
+                            href="{{ url('activities') }}">النشاطات</a>
+                        <a class="nav-link {{ request()->is('complaints*') ? 'active' : '' }}"
+                            href="{{ url('complaints') }}">الشكاوي</a>
+                        <a class="nav-link {{ request()->is('council*') ? 'active' : '' }}"
+                            href="{{ url('/council') }}">أعضاء المجلس</a>
+                    @endif
                 </div>
             </div>
             @auth
-            <!-- Settings Dropdown for authenticated users -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false"
-                    style="visibility: visible !important; opacity: 1 !important; display: block !important;">
-                    {{ Auth::user()->name }}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    @if (!Auth::user() instanceof App\Models\Admin)
-                        <li><a class="dropdown-item" href="{{ route('profile.edit') }}"
-                                style="visibility: visible !important; opacity: 1 !important; display: block !important;">{{ __('Profile') }}</a>
+                <!-- Settings Dropdown for authenticated users -->
+                <div style="margin-right: 62px;" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="visibility: visible !important; opacity: 1 !important; display: block !important;">
+                        {{ 'مشرف' }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <form method="POST"
+                                action="{{ Auth::guard('admin')->check() ? route('admin.logout') : route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item"
+                                    style="visibility: visible !important; opacity: 1 !important; display: block !important;">{{ 'تسجيل خروج' }}</button>
+                            </form>
                         </li>
-                    @endif
-                    <li>
-                        <form method="POST"
-                            action="{{ Auth::user() instanceof App\Models\Admin ? route('admin.logout') : route('logout') }}">
-                            @csrf
-                            <button type="submit" class="dropdown-item"
-                                style="visibility: visible !important; opacity: 1 !important; display: block !important;">{{ __('Log Out') }}</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        @else
-            <!-- Login button for unauthenticated users -->
-            <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
-        @endauth
+                    </ul>
+                </div>
+            @endauth
         </div>
     </nav>
 

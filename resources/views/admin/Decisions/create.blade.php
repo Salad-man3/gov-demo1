@@ -6,14 +6,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Create a decision <a href="{{ url('admin/decisions') }}" class="btn btn-danger float-end">Back</a>
+                        <h4>أنشاء قرار <a href="{{ url('admin/decisions') }}" class="btn btn-danger float-end">عودة</a>
                         </h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.decisions.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="title"> Title</label>
+                                <label for="title"> العنوان</label>
                                 <input type="text" name="title" class="form-control">
                                 <span class="text-danger"> @error('title')
                                         {{ $message }}
@@ -21,7 +21,7 @@
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <label for="description"> Description</label>
+                                <label for="description"> الوصف</label>
                                 <textarea name="description" rows="4" class="form-control"></textarea>
                                 <span class="text-danger"> @error('description')
                                         {{ $message }}
@@ -29,13 +29,13 @@
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <label for="adminstrator">Administrator</label>
+                                <label for="adminstrator">المسؤول</label>
                                 <input type="text" name="adminstrator" id="adminstrator" class="form-control">
                                 <span class="text-danger">@error('adminstrator'){{ $message }}@enderror</span>
                             </div>
 
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary">إنشاء</button>
                             </div>
                         </form>
                     </div>

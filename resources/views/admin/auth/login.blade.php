@@ -5,7 +5,7 @@
     <form method="POST" action="{{ route('admin.login') }}">
         @csrf
 
-        <h4 class="text-center mb-3">Admin Login page</h4>
+        <h4 class="text-center mb-3">تسجيل الدخول للمشرف</h4>
 
         <!-- Email Address -->
         <div>
