@@ -7,7 +7,7 @@
             @for ($i = 1; $i <= 20; $i++)
                 <div class="col">
                     <div class="card h-100">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="صورة العضو {{ $i }}">
+                        <img src="https://randomuser.me/api/portraits/men/{{ $i ^ 3 % 20 }}.jpg" class="card-img-top"  alt="صورة العضو {{ $i }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ fake('ar_SA')->name() }}</h5>
                             {{-- <p class="card-text">{{ fake('ar_SA')->jobTitle() }}</p> --}}
